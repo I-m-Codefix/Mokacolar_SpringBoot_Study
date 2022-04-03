@@ -23,7 +23,7 @@ public class MemoryMemberRepositoryTest {
         member.setName("Jinyong");
 
         repository.save(member);
-        Member result =  repository.findbyId(member.getId()).get(); //.get 으로 꺼내는 것은 좋은 방법은 아님.
+        Member result =  repository.findById(member.getId()).get(); //.get 으로 꺼내는 것은 좋은 방법은 아님.
         //Assertions.assertEquals(result, member);
         assertThat(member).isEqualTo(result); //요즘은 이렇게 많이 사용함.
     }
@@ -38,7 +38,7 @@ public class MemoryMemberRepositoryTest {
         member2.setName("Jinyong2");
         repository.save(member2);
 
-        Member result = repository.findbyName("Jinyong1").get();
+        Member result = repository.findByName("Jinyong1").get();
         assertThat(result).isEqualTo(member1);
     }
 
@@ -57,7 +57,5 @@ public class MemoryMemberRepositoryTest {
         assertThat(result.size()).isEqualTo(2);
 
     }
-
-
 
 }
